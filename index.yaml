@@ -3,11 +3,11 @@ entries:
   myapp:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2024-09-25T07:19:27.182309399Z"
+    created: "2024-09-25T07:32:39.681408149Z"
     description: test app
-    digest: 1ad27ba5bf89f136090becc93bd3fefd1e681096b255e6039dd3fbc0b8aa765b
+    digest: aa40e0a571af2aebe72fa962f91b6f7f942690c4d6f7c61de4c7309465d199d9
     name: myapp
     urls:
     - https://integer-bin.github.io/helm-repo/myapp-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-25T07:19:27.181799325Z"
+generated: "2024-09-25T07:32:39.680768098Z"
