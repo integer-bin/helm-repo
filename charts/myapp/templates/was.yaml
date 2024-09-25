@@ -15,10 +15,10 @@ kind: Deployment
 metadata:
   name: was
 spec:
-  replicas: {{.Values.replicasCount}}
   selector:
     matchLabels:
       app: was
+  replicas: {{.Values.replicaCount}}
   template:
     metadata:
       labels:
@@ -26,7 +26,8 @@ spec:
     spec:
       containers:
       - name: was
-        image: {{.Values.wasImage.repository}}:{{.Values.wasImage.tag}}
+        image: {{ .Values.wasImage.repository }}:{{ .Values.wasImage.tag }}
+        imagePullPolicy: {{ .Values.wasImage.pullPolicy }}
         ports:
         - containerPort: 8080
       initContainers:
