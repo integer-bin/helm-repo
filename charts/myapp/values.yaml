@@ -5,7 +5,7 @@ replicaCount: 2
 
 wasImage:
   repository: "integerbin1/cicd"
-  tag: v1
+  tag: v3
   pullPolicy: IfNotPresent
 
 service:
