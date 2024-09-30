@@ -2,7 +2,7 @@
 # This is where you can set customizable values.
 
 was:
-  replicaCount: 5
+  replicaCount: 3
 
 nginx:
   replicaCount: 1
