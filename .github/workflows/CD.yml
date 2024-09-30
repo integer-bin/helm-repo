@@ -5,6 +5,8 @@ on:
     workflows: ["CI"]
     types:
       - completed
+    conclusions:
+      - success     
 
 jobs:
   use-commit-message:
@@ -13,7 +15,7 @@ jobs:
       - name: Checkout CD repository
         uses: actions/checkout@v4
         with:
-          repository: integer-bin/helm-repo
+          repository: integer-bin/helm-repo #helm chart reposytory git
           ref: main
           token: ${{ secrets.TOKEN }}  # 매우 중요
       
@@ -23,7 +25,6 @@ jobs:
         run: |
           cd charts/myapp
           ls -al 
-          # kustomize edit set image cicd-image=${{ secrets.DOCKERHUB_USERNAME }}/cicdlab_1:${{ github.event.workflow_run.head_commit.message }}
           sed -i 's/^\(\s*tag:\s*\).*/\1'${{ github.event.workflow_run.head_commit.message }}'/' values.yaml
           cat values.yaml
 
@@ -33,7 +34,7 @@ jobs:
           git config --global user.email "integer-bin@github.com"
 
       - name: Add remote repository
-        run: git remote add target_repo https://github.com/integer-bin/
+        run: git remote add target_repo git@github.com:integer-bin/helm-repo.git
 
       - name: Commit and push changes
         run: |
