@@ -5,7 +5,7 @@ was:
   replicaCount: 3
 
 nginx:
-  replicaCount: 5
+  replicaCount: 1
 
 wasImage:
   repository: "integerbin1/cicd"
