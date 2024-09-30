@@ -4,6 +4,9 @@
 was:
   replicaCount: 3
 
+nginx:
+  replicaCount: 5
+
 wasImage:
   repository: "integerbin1/cicd"
   tag: v3
