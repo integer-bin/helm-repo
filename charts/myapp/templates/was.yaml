@@ -18,7 +18,7 @@ spec:
   selector:
     matchLabels:
       app: was
-  replicas: {{.Values.replicaCount}}
+  replicas: {{.Values.was.replicaCount}}
   template:
     metadata:
       labels:
@@ -27,6 +27,10 @@ spec:
       containers:
       - name: was
         image: {{ .Values.wasImage.repository }}:{{ .Values.wasImage.tag }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080        
         imagePullPolicy: {{ .Values.wasImage.pullPolicy }}
         ports:
         - containerPort: 8080
